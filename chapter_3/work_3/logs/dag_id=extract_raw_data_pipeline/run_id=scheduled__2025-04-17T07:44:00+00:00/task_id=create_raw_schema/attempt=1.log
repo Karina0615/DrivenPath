@@ -1,0 +1,22 @@
+[2025-04-17T07:45:04.135+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2025-04-17T07:45:04.171+0000] {taskinstance.py:2612} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: extract_raw_data_pipeline.create_raw_schema scheduled__2025-04-17T07:44:00+00:00 [queued]>
+[2025-04-17T07:45:04.188+0000] {taskinstance.py:2612} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: extract_raw_data_pipeline.create_raw_schema scheduled__2025-04-17T07:44:00+00:00 [queued]>
+[2025-04-17T07:45:04.189+0000] {taskinstance.py:2865} INFO - Starting attempt 1 of 1
+[2025-04-17T07:45:04.220+0000] {taskinstance.py:2888} INFO - Executing <Task(SQLExecuteQueryOperator): create_raw_schema> on 2025-04-17 07:44:00+00:00
+[2025-04-17T07:45:04.226+0000] {warnings.py:112} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:70: DeprecationWarning: This process (pid=334) is multi-threaded, use of fork() may lead to deadlocks in the child.
+  pid = os.fork()
+
+[2025-04-17T07:45:04.229+0000] {standard_task_runner.py:72} INFO - Started process 342 to run task
+[2025-04-17T07:45:04.229+0000] {standard_task_runner.py:104} INFO - Running: ['***', 'tasks', 'run', 'extract_raw_data_pipeline', 'create_raw_schema', 'scheduled__2025-04-17T07:44:00+00:00', '--job-id', '234', '--raw', '--subdir', 'DAGS_FOLDER/lead_data_pipeline.py', '--cfg-path', '/tmp/tmpvwthdexl']
+[2025-04-17T07:45:04.231+0000] {standard_task_runner.py:105} INFO - Job 234: Subtask create_raw_schema
+[2025-04-17T07:45:04.290+0000] {task_command.py:467} INFO - Running <TaskInstance: extract_raw_data_pipeline.create_raw_schema scheduled__2025-04-17T07:44:00+00:00 [running]> on host c0ac39583bd8
+[2025-04-17T07:45:04.417+0000] {taskinstance.py:3131} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='extract_raw_data_pipeline' AIRFLOW_CTX_TASK_ID='create_raw_schema' AIRFLOW_CTX_EXECUTION_DATE='2025-04-17T07:44:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2025-04-17T07:44:00+00:00'
+[2025-04-17T07:45:04.419+0000] {taskinstance.py:731} INFO - ::endgroup::
+[2025-04-17T07:45:04.445+0000] {sql.py:266} INFO - Executing: CREATE SCHEMA IF NOT EXISTS lead_raw;
+[2025-04-17T07:45:04.461+0000] {base.py:84} INFO - Retrieving connection 'postgres_conn'
+[2025-04-17T07:45:04.499+0000] {base.py:84} INFO - Retrieving connection 'postgres_conn'
+[2025-04-17T07:45:04.503+0000] {sql.py:509} INFO - Running statement: CREATE SCHEMA IF NOT EXISTS lead_raw;, parameters: None
+[2025-04-17T07:45:04.518+0000] {taskinstance.py:340} INFO - ::group::Post task execution logs
+[2025-04-17T07:45:04.519+0000] {taskinstance.py:352} INFO - Marking task as SUCCESS. dag_id=extract_raw_data_pipeline, task_id=create_raw_schema, run_id=scheduled__2025-04-17T07:44:00+00:00, execution_date=20250417T074400, start_date=20250417T074504, end_date=20250417T074504
+[2025-04-17T07:45:04.584+0000] {local_task_job_runner.py:266} INFO - Task exited with return code 0
+[2025-04-17T07:45:04.600+0000] {local_task_job_runner.py:245} INFO - ::endgroup::

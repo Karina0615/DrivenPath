@@ -1,0 +1,42 @@
+[2025-04-17T07:48:11.182+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2025-04-17T07:48:11.202+0000] {taskinstance.py:2612} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: extract_raw_data_pipeline.load_raw_data scheduled__2025-04-17T07:47:00+00:00 [queued]>
+[2025-04-17T07:48:11.211+0000] {taskinstance.py:2612} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: extract_raw_data_pipeline.load_raw_data scheduled__2025-04-17T07:47:00+00:00 [queued]>
+[2025-04-17T07:48:11.212+0000] {taskinstance.py:2865} INFO - Starting attempt 1 of 1
+[2025-04-17T07:48:11.226+0000] {taskinstance.py:2888} INFO - Executing <Task(SQLExecuteQueryOperator): load_raw_data> on 2025-04-17 07:47:00+00:00
+[2025-04-17T07:48:11.233+0000] {warnings.py:112} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:70: DeprecationWarning: This process (pid=673) is multi-threaded, use of fork() may lead to deadlocks in the child.
+  pid = os.fork()
+
+[2025-04-17T07:48:11.235+0000] {standard_task_runner.py:72} INFO - Started process 675 to run task
+[2025-04-17T07:48:11.235+0000] {standard_task_runner.py:104} INFO - Running: ['***', 'tasks', 'run', 'extract_raw_data_pipeline', 'load_raw_data', 'scheduled__2025-04-17T07:47:00+00:00', '--job-id', '264', '--raw', '--subdir', 'DAGS_FOLDER/lead_data_pipeline.py', '--cfg-path', '/tmp/tmptmrffd33']
+[2025-04-17T07:48:11.236+0000] {standard_task_runner.py:105} INFO - Job 264: Subtask load_raw_data
+[2025-04-17T07:48:11.294+0000] {task_command.py:467} INFO - Running <TaskInstance: extract_raw_data_pipeline.load_raw_data scheduled__2025-04-17T07:47:00+00:00 [running]> on host c0ac39583bd8
+[2025-04-17T07:48:11.448+0000] {taskinstance.py:3131} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='extract_raw_data_pipeline' AIRFLOW_CTX_TASK_ID='load_raw_data' AIRFLOW_CTX_EXECUTION_DATE='2025-04-17T07:47:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2025-04-17T07:47:00+00:00'
+[2025-04-17T07:48:11.449+0000] {taskinstance.py:731} INFO - ::endgroup::
+[2025-04-17T07:48:11.475+0000] {sql.py:266} INFO - Executing: 
+    COPY lead_raw.raw_batch_data(
+    person_name, user_name, email, personal_number, birth_date,
+    address, phone, mac_address, ip_address, iban, accessed_at,
+    session_duration, download_speed, upload_speed, consumed_traffic, unique_id
+    ) 
+    FROM '/opt/***/data/raw_data.csv' 
+    DELIMITER ',' 
+    CSV HEADER;
+    
+[2025-04-17T07:48:11.484+0000] {base.py:84} INFO - Retrieving connection 'postgres_conn'
+[2025-04-17T07:48:11.495+0000] {base.py:84} INFO - Retrieving connection 'postgres_conn'
+[2025-04-17T07:48:11.500+0000] {sql.py:509} INFO - Running statement: 
+    COPY lead_raw.raw_batch_data(
+    person_name, user_name, email, personal_number, birth_date,
+    address, phone, mac_address, ip_address, iban, accessed_at,
+    session_duration, download_speed, upload_speed, consumed_traffic, unique_id
+    ) 
+    FROM '/opt/***/data/raw_data.csv' 
+    DELIMITER ',' 
+    CSV HEADER;
+    , parameters: None
+[2025-04-17T07:48:12.544+0000] {sql.py:518} INFO - Rows affected: 223214
+[2025-04-17T07:48:12.561+0000] {taskinstance.py:340} INFO - ::group::Post task execution logs
+[2025-04-17T07:48:12.562+0000] {taskinstance.py:352} INFO - Marking task as SUCCESS. dag_id=extract_raw_data_pipeline, task_id=load_raw_data, run_id=scheduled__2025-04-17T07:47:00+00:00, execution_date=20250417T074700, start_date=20250417T074811, end_date=20250417T074812
+[2025-04-17T07:48:12.618+0000] {local_task_job_runner.py:266} INFO - Task exited with return code 0
+[2025-04-17T07:48:12.646+0000] {taskinstance.py:3900} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2025-04-17T07:48:12.647+0000] {local_task_job_runner.py:245} INFO - ::endgroup::

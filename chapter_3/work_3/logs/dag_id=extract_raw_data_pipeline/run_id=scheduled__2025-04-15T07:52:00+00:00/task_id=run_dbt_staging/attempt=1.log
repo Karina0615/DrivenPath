@@ -1,0 +1,89 @@
+[2025-04-15T07:53:17.691+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2025-04-15T07:53:17.780+0000] {taskinstance.py:2612} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: extract_raw_data_pipeline.run_dbt_staging scheduled__2025-04-15T07:52:00+00:00 [queued]>
+[2025-04-15T07:53:17.824+0000] {taskinstance.py:2612} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: extract_raw_data_pipeline.run_dbt_staging scheduled__2025-04-15T07:52:00+00:00 [queued]>
+[2025-04-15T07:53:17.827+0000] {taskinstance.py:2865} INFO - Starting attempt 1 of 1
+[2025-04-15T07:53:17.893+0000] {taskinstance.py:2888} INFO - Executing <Task(BashOperator): run_dbt_staging> on 2025-04-15 07:52:00+00:00
+[2025-04-15T07:53:17.916+0000] {warnings.py:112} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:70: DeprecationWarning: This process (pid=3787) is multi-threaded, use of fork() may lead to deadlocks in the child.
+  pid = os.fork()
+
+[2025-04-15T07:53:17.926+0000] {standard_task_runner.py:72} INFO - Started process 3789 to run task
+[2025-04-15T07:53:17.928+0000] {standard_task_runner.py:104} INFO - Running: ['***', 'tasks', 'run', 'extract_raw_data_pipeline', 'run_dbt_staging', 'scheduled__2025-04-15T07:52:00+00:00', '--job-id', '102', '--raw', '--subdir', 'DAGS_FOLDER/lead_data_pipeline.py', '--cfg-path', '/tmp/tmph7eyqb2z']
+[2025-04-15T07:53:17.935+0000] {standard_task_runner.py:105} INFO - Job 102: Subtask run_dbt_staging
+[2025-04-15T07:53:18.183+0000] {task_command.py:467} INFO - Running <TaskInstance: extract_raw_data_pipeline.run_dbt_staging scheduled__2025-04-15T07:52:00+00:00 [running]> on host c0ac39583bd8
+[2025-04-15T07:53:18.699+0000] {taskinstance.py:3131} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='extract_raw_data_pipeline' AIRFLOW_CTX_TASK_ID='run_dbt_staging' AIRFLOW_CTX_EXECUTION_DATE='2025-04-15T07:52:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2025-04-15T07:52:00+00:00'
+[2025-04-15T07:53:18.704+0000] {taskinstance.py:731} INFO - ::endgroup::
+[2025-04-15T07:53:18.805+0000] {subprocess.py:63} INFO - Tmp dir root location: /tmp
+[2025-04-15T07:53:18.814+0000] {subprocess.py:75} INFO - Running command: ['/usr/bin/bash', '-c', 'set -x; cd /opt/***/dbt && dbt run --select tag:staging']
+[2025-04-15T07:53:18.855+0000] {subprocess.py:86} INFO - Output:
+[2025-04-15T07:53:18.867+0000] {subprocess.py:93} INFO - + cd /opt/***/dbt
+[2025-04-15T07:53:18.871+0000] {subprocess.py:93} INFO - + dbt run --select tag:staging
+[2025-04-15T07:53:33.239+0000] {subprocess.py:93} INFO - [0m07:53:33  Running with dbt=1.8.0
+[2025-04-15T07:53:35.027+0000] {subprocess.py:93} INFO - [0m07:53:35  Registered adapter: postgres=1.8.2
+[2025-04-15T07:53:38.143+0000] {subprocess.py:93} INFO - [0m07:53:38  Found 9 models, 10 sources, 428 macros
+[2025-04-15T07:53:38.170+0000] {subprocess.py:93} INFO - [0m07:53:38
+[2025-04-15T07:53:38.994+0000] {subprocess.py:93} INFO - [0m07:53:38  Concurrency: 1 threads (target='dev')
+[2025-04-15T07:53:39.001+0000] {subprocess.py:93} INFO - [0m07:53:39
+[2025-04-15T07:53:39.090+0000] {subprocess.py:93} INFO - [0m07:53:39  1 of 5 START sql table model lead_staging.dim_address .......................... [RUN]
+[2025-04-15T08:07:24.911+0000] {job.py:229} INFO - Heartbeat recovered after 816.24 seconds
+[2025-04-15T08:23:12.717+0000] {job.py:229} INFO - Heartbeat recovered after 906.40 seconds
+[2025-04-15T08:38:38.970+0000] {job.py:229} INFO - Heartbeat recovered after 905.67 seconds
+[2025-04-15T08:54:29.769+0000] {job.py:229} INFO - Heartbeat recovered after 930.25 seconds
+[2025-04-15T09:08:27.103+0000] {job.py:229} INFO - Heartbeat recovered after 795.44 seconds
+[2025-04-15T09:24:41.382+0000] {job.py:229} INFO - Heartbeat recovered after 927.35 seconds
+[2025-04-15T09:40:32.056+0000] {job.py:229} INFO - Heartbeat recovered after 903.84 seconds
+[2025-04-15T09:56:23.526+0000] {job.py:229} INFO - Heartbeat recovered after 930.88 seconds
+[2025-04-15T10:09:28.938+0000] {job.py:229} INFO - Heartbeat recovered after 744.40 seconds
+[2025-04-15T10:24:55.524+0000] {job.py:229} INFO - Heartbeat recovered after 905.87 seconds
+[2025-04-15T10:40:46.608+0000] {job.py:229} INFO - Heartbeat recovered after 930.46 seconds
+[2025-04-15T10:56:36.064+0000] {job.py:229} INFO - Heartbeat recovered after 903.00 seconds
+[2025-04-15T11:10:29.929+0000] {job.py:229} INFO - Heartbeat recovered after 813.44 seconds
+[2025-04-15T11:10:38.984+0000] {subprocess.py:93} INFO - [0m11:10:38  1 of 5 OK created sql table model lead_staging.dim_address ..................... [[32mSELECT 1863250[0m in 11819.89s]
+[2025-04-15T11:10:38.987+0000] {subprocess.py:93} INFO - [0m11:10:38  2 of 5 START sql table model lead_staging.dim_date ............................. [RUN]
+[2025-04-15T11:26:21.107+0000] {job.py:229} INFO - Heartbeat recovered after 930.69 seconds
+[2025-04-15T11:42:32.770+0000] {job.py:229} INFO - Heartbeat recovered after 929.89 seconds
+[2025-04-15T11:58:46.957+0000] {job.py:229} INFO - Heartbeat recovered after 927.83 seconds
+[2025-04-15T12:11:30.854+0000] {job.py:229} INFO - Heartbeat recovered after 722.75 seconds
+[2025-04-15T12:27:43.247+0000] {job.py:229} INFO - Heartbeat recovered after 931.25 seconds
+[2025-04-15T12:43:55.715+0000] {job.py:229} INFO - Heartbeat recovered after 931.23 seconds
+[2025-04-15T12:59:47.782+0000] {job.py:229} INFO - Heartbeat recovered after 904.86 seconds
+[2025-04-15T13:12:33.095+0000] {job.py:229} INFO - Heartbeat recovered after 743.80 seconds
+[2025-04-15T13:28:23.745+0000] {job.py:229} INFO - Heartbeat recovered after 930.07 seconds
+[2025-04-15T14:13:34.022+0000] {job.py:229} INFO - Heartbeat recovered after 2689.36 seconds
+[2025-04-15T14:29:29.078+0000] {job.py:229} INFO - Heartbeat recovered after 929.25 seconds
+[2025-04-15T14:45:19.562+0000] {job.py:229} INFO - Heartbeat recovered after 904.13 seconds
+[2025-04-15T15:00:46.714+0000] {job.py:229} INFO - Heartbeat recovered after 906.59 seconds
+[2025-04-15T15:14:35.867+0000] {job.py:229} INFO - Heartbeat recovered after 808.57 seconds
+[2025-04-15T15:15:11.505+0000] {subprocess.py:93} INFO - [0m15:15:11  2 of 5 OK created sql table model lead_staging.dim_date ........................ [[32mSELECT 2274886[0m in 14672.49s]
+[2025-04-15T15:15:11.550+0000] {subprocess.py:93} INFO - [0m15:15:11  3 of 5 START sql table model lead_staging.dim_finance .......................... [RUN]
+[2025-04-15T15:30:24.566+0000] {job.py:229} INFO - Heartbeat recovered after 907.56 seconds
+[2025-04-15T15:46:14.405+0000] {job.py:229} INFO - Heartbeat recovered after 929.25 seconds
+[2025-04-15T15:50:30.843+0000] {job.py:229} INFO - Heartbeat recovered after 215.26 seconds
+[2025-04-15T16:06:08.002+0000] {job.py:229} INFO - Heartbeat recovered after 932.13 seconds
+[2025-04-15T16:11:53.820+0000] {job.py:229} INFO - Heartbeat recovered after 304.58 seconds
+[2025-04-15T16:15:36.943+0000] {job.py:229} INFO - Heartbeat recovered after 181.77 seconds
+[2025-04-15T16:31:13.809+0000] {job.py:229} INFO - Heartbeat recovered after 931.84 seconds
+[2025-04-15T16:31:18.858+0000] {subprocess.py:93} INFO - [0m16:31:18  3 of 5 OK created sql table model lead_staging.dim_finance ..................... [[32mSELECT 2274886[0m in 4567.30s]
+[2025-04-15T16:31:18.861+0000] {subprocess.py:93} INFO - [0m16:31:18  4 of 5 START sql table model lead_staging.dim_person ........................... [RUN]
+[2025-04-15T16:39:02.723+0000] {job.py:229} INFO - Heartbeat recovered after 394.20 seconds
+[2025-04-15T18:26:42.099+0000] {job.py:229} INFO - Heartbeat recovered after 6449.05 seconds
+[2025-04-15T18:56:39.641+0000] {job.py:229} INFO - Heartbeat recovered after 1777.34 seconds
+[2025-04-15T18:57:23.676+0000] {job.py:229} INFO - Heartbeat recovered after 18.66 seconds
+[2025-04-15T18:57:37.482+0000] {subprocess.py:93} INFO - [0m18:57:37  4 of 5 OK created sql table model lead_staging.dim_person ...................... [[32mSELECT 2274886[0m in 8778.61s]
+[2025-04-15T18:57:37.494+0000] {subprocess.py:93} INFO - [0m18:57:37  5 of 5 START sql table model lead_staging.fact_network_usage ................... [RUN]
+[2025-04-16T00:00:12.943+0000] {job.py:229} INFO - Heartbeat recovered after 18154.07 seconds
+[2025-04-16T00:02:41.847+0000] {job.py:229} INFO - Heartbeat recovered after 143.87 seconds
+[2025-04-16T00:03:31.561+0000] {job.py:229} INFO - Heartbeat recovered after 19.26 seconds
+[2025-04-16T12:00:20.365+0000] {job.py:229} INFO - Heartbeat recovered after 43003.65 seconds
+[2025-04-16T12:00:51.626+0000] {subprocess.py:93} INFO - [0m12:00:51  5 of 5 OK created sql table model lead_staging.fact_network_usage .............. [[32mSELECT 2274886[0m in 61394.13s]
+[2025-04-16T12:00:51.668+0000] {subprocess.py:93} INFO - [0m12:00:51
+[2025-04-16T12:00:51.670+0000] {subprocess.py:93} INFO - [0m12:00:51  Finished running 5 table models in 28 hours 7 minutes and 13.49 seconds (101233.49s).
+[2025-04-16T12:00:51.849+0000] {subprocess.py:93} INFO - [0m12:00:51
+[2025-04-16T12:00:51.851+0000] {subprocess.py:93} INFO - [0m12:00:51  [32mCompleted successfully[0m
+[2025-04-16T12:00:51.852+0000] {subprocess.py:93} INFO - [0m12:00:51
+[2025-04-16T12:00:51.854+0000] {subprocess.py:93} INFO - [0m12:00:51  Done. PASS=5 WARN=0 ERROR=0 SKIP=0 TOTAL=5
+[2025-04-16T12:00:53.759+0000] {subprocess.py:97} INFO - Command exited with return code 0
+[2025-04-16T12:00:53.876+0000] {taskinstance.py:340} INFO - ::group::Post task execution logs
+[2025-04-16T12:00:53.879+0000] {taskinstance.py:352} INFO - Marking task as SUCCESS. dag_id=extract_raw_data_pipeline, task_id=run_dbt_staging, run_id=scheduled__2025-04-15T07:52:00+00:00, execution_date=20250415T075200, start_date=20250415T075317, end_date=20250416T120053
+[2025-04-16T12:00:53.971+0000] {local_task_job_runner.py:266} INFO - Task exited with return code 0
+[2025-04-16T12:00:54.029+0000] {taskinstance.py:3900} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2025-04-16T12:00:54.044+0000] {local_task_job_runner.py:245} INFO - ::endgroup::

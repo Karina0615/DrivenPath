@@ -1,0 +1,47 @@
+[2025-05-05T14:27:40.692+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2025-05-05T14:27:40.709+0000] {taskinstance.py:2612} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: extract_raw_data_pipeline.run_dbt_staging manual__2025-05-05T14:27:06.656996+00:00 [queued]>
+[2025-05-05T14:27:40.720+0000] {taskinstance.py:2612} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: extract_raw_data_pipeline.run_dbt_staging manual__2025-05-05T14:27:06.656996+00:00 [queued]>
+[2025-05-05T14:27:40.721+0000] {taskinstance.py:2865} INFO - Starting attempt 1 of 1
+[2025-05-05T14:27:40.734+0000] {taskinstance.py:2888} INFO - Executing <Task(BashOperator): run_dbt_staging> on 2025-05-05 14:27:06.656996+00:00
+[2025-05-05T14:27:40.739+0000] {warnings.py:112} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:70: DeprecationWarning: This process (pid=1840) is multi-threaded, use of fork() may lead to deadlocks in the child.
+  pid = os.fork()
+
+[2025-05-05T14:27:40.741+0000] {standard_task_runner.py:72} INFO - Started process 1856 to run task
+[2025-05-05T14:27:40.741+0000] {standard_task_runner.py:104} INFO - Running: ['***', 'tasks', 'run', 'extract_raw_data_pipeline', 'run_dbt_staging', 'manual__2025-05-05T14:27:06.656996+00:00', '--job-id', '47', '--raw', '--subdir', 'DAGS_FOLDER/lead_data_pipeline.py', '--cfg-path', '/tmp/tmp0ete2cme']
+[2025-05-05T14:27:40.742+0000] {standard_task_runner.py:105} INFO - Job 47: Subtask run_dbt_staging
+[2025-05-05T14:27:40.799+0000] {task_command.py:467} INFO - Running <TaskInstance: extract_raw_data_pipeline.run_dbt_staging manual__2025-05-05T14:27:06.656996+00:00 [running]> on host 433e63c87a30
+[2025-05-05T14:27:40.879+0000] {taskinstance.py:3131} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='extract_raw_data_pipeline' AIRFLOW_CTX_TASK_ID='run_dbt_staging' AIRFLOW_CTX_EXECUTION_DATE='2025-05-05T14:27:06.656996+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-05-05T14:27:06.656996+00:00'
+[2025-05-05T14:27:40.880+0000] {taskinstance.py:731} INFO - ::endgroup::
+[2025-05-05T14:27:40.895+0000] {subprocess.py:63} INFO - Tmp dir root location: /tmp
+[2025-05-05T14:27:40.896+0000] {subprocess.py:75} INFO - Running command: ['/usr/bin/bash', '-c', 'set -x; cd /opt/***/dbt && dbt run --select tag:staging']
+[2025-05-05T14:27:40.905+0000] {subprocess.py:86} INFO - Output:
+[2025-05-05T14:27:40.907+0000] {subprocess.py:93} INFO - + cd /opt/***/dbt
+[2025-05-05T14:27:40.907+0000] {subprocess.py:93} INFO - + dbt run --select tag:staging
+[2025-05-05T14:27:42.821+0000] {subprocess.py:93} INFO - [0m14:27:42  Running with dbt=1.8.0
+[2025-05-05T14:27:43.088+0000] {subprocess.py:93} INFO - [0m14:27:43  Registered adapter: postgres=1.8.2
+[2025-05-05T14:27:43.526+0000] {subprocess.py:93} INFO - [0m14:27:43  Found 9 models, 10 sources, 428 macros
+[2025-05-05T14:27:43.530+0000] {subprocess.py:93} INFO - [0m14:27:43
+[2025-05-05T14:27:43.662+0000] {subprocess.py:93} INFO - [0m14:27:43  Concurrency: 1 threads (target='dev')
+[2025-05-05T14:27:43.663+0000] {subprocess.py:93} INFO - [0m14:27:43
+[2025-05-05T14:27:43.675+0000] {subprocess.py:93} INFO - [0m14:27:43  1 of 5 START sql table model lead_staging.dim_address .......................... [RUN]
+[2025-05-05T14:27:44.128+0000] {subprocess.py:93} INFO - [0m14:27:44  1 of 5 OK created sql table model lead_staging.dim_address ..................... [[32mSELECT 301116[0m in 0.45s]
+[2025-05-05T14:27:44.131+0000] {subprocess.py:93} INFO - [0m14:27:44  2 of 5 START sql table model lead_staging.dim_date ............................. [RUN]
+[2025-05-05T14:27:44.423+0000] {subprocess.py:93} INFO - [0m14:27:44  2 of 5 OK created sql table model lead_staging.dim_date ........................ [[32mSELECT 301116[0m in 0.29s]
+[2025-05-05T14:27:44.425+0000] {subprocess.py:93} INFO - [0m14:27:44  3 of 5 START sql table model lead_staging.dim_finance .......................... [RUN]
+[2025-05-05T14:27:44.709+0000] {subprocess.py:93} INFO - [0m14:27:44  3 of 5 OK created sql table model lead_staging.dim_finance ..................... [[32mSELECT 301116[0m in 0.28s]
+[2025-05-05T14:27:44.712+0000] {subprocess.py:93} INFO - [0m14:27:44  4 of 5 START sql table model lead_staging.dim_person ........................... [RUN]
+[2025-05-05T14:27:45.115+0000] {subprocess.py:93} INFO - [0m14:27:45  4 of 5 OK created sql table model lead_staging.dim_person ...................... [[32mSELECT 301116[0m in 0.40s]
+[2025-05-05T14:27:45.118+0000] {subprocess.py:93} INFO - [0m14:27:45  5 of 5 START sql table model lead_staging.fact_network_usage ................... [RUN]
+[2025-05-05T14:27:45.444+0000] {subprocess.py:93} INFO - [0m14:27:45  5 of 5 OK created sql table model lead_staging.fact_network_usage .............. [[32mSELECT 301116[0m in 0.32s]
+[2025-05-05T14:27:45.465+0000] {subprocess.py:93} INFO - [0m14:27:45
+[2025-05-05T14:27:45.465+0000] {subprocess.py:93} INFO - [0m14:27:45  Finished running 5 table models in 0 hours 0 minutes and 1.93 seconds (1.93s).
+[2025-05-05T14:27:45.531+0000] {subprocess.py:93} INFO - [0m14:27:45
+[2025-05-05T14:27:45.532+0000] {subprocess.py:93} INFO - [0m14:27:45  [32mCompleted successfully[0m
+[2025-05-05T14:27:45.533+0000] {subprocess.py:93} INFO - [0m14:27:45
+[2025-05-05T14:27:45.534+0000] {subprocess.py:93} INFO - [0m14:27:45  Done. PASS=5 WARN=0 ERROR=0 SKIP=0 TOTAL=5
+[2025-05-05T14:27:46.348+0000] {subprocess.py:97} INFO - Command exited with return code 0
+[2025-05-05T14:27:46.375+0000] {taskinstance.py:340} INFO - ::group::Post task execution logs
+[2025-05-05T14:27:46.376+0000] {taskinstance.py:352} INFO - Marking task as SUCCESS. dag_id=extract_raw_data_pipeline, task_id=run_dbt_staging, run_id=manual__2025-05-05T14:27:06.656996+00:00, execution_date=20250505T142706, start_date=20250505T142740, end_date=20250505T142746
+[2025-05-05T14:27:46.425+0000] {local_task_job_runner.py:266} INFO - Task exited with return code 0
+[2025-05-05T14:27:46.445+0000] {taskinstance.py:3900} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2025-05-05T14:27:46.447+0000] {local_task_job_runner.py:245} INFO - ::endgroup::
