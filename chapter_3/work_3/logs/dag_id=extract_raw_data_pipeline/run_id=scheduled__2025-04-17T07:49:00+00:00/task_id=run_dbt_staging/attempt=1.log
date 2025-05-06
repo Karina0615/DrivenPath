@@ -1,0 +1,26 @@
+[2025-04-17T07:50:10.309+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2025-04-17T07:50:10.326+0000] {taskinstance.py:2612} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: extract_raw_data_pipeline.run_dbt_staging scheduled__2025-04-17T07:49:00+00:00 [queued]>
+[2025-04-17T07:50:10.335+0000] {taskinstance.py:2612} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: extract_raw_data_pipeline.run_dbt_staging scheduled__2025-04-17T07:49:00+00:00 [queued]>
+[2025-04-17T07:50:10.336+0000] {taskinstance.py:2865} INFO - Starting attempt 1 of 1
+[2025-04-17T07:50:10.352+0000] {taskinstance.py:2888} INFO - Executing <Task(BashOperator): run_dbt_staging> on 2025-04-17 07:49:00+00:00
+[2025-04-17T07:50:10.358+0000] {warnings.py:112} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:70: DeprecationWarning: This process (pid=797) is multi-threaded, use of fork() may lead to deadlocks in the child.
+  pid = os.fork()
+
+[2025-04-17T07:50:10.360+0000] {standard_task_runner.py:72} INFO - Started process 799 to run task
+[2025-04-17T07:50:10.360+0000] {standard_task_runner.py:104} INFO - Running: ['***', 'tasks', 'run', 'extract_raw_data_pipeline', 'run_dbt_staging', 'scheduled__2025-04-17T07:49:00+00:00', '--job-id', '275', '--raw', '--subdir', 'DAGS_FOLDER/lead_data_pipeline.py', '--cfg-path', '/tmp/tmpj3f45u6i']
+[2025-04-17T07:50:10.362+0000] {standard_task_runner.py:105} INFO - Job 275: Subtask run_dbt_staging
+[2025-04-17T07:50:10.415+0000] {task_command.py:467} INFO - Running <TaskInstance: extract_raw_data_pipeline.run_dbt_staging scheduled__2025-04-17T07:49:00+00:00 [running]> on host c0ac39583bd8
+[2025-04-17T07:50:10.559+0000] {taskinstance.py:3131} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='extract_raw_data_pipeline' AIRFLOW_CTX_TASK_ID='run_dbt_staging' AIRFLOW_CTX_EXECUTION_DATE='2025-04-17T07:49:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2025-04-17T07:49:00+00:00'
+[2025-04-17T07:50:10.560+0000] {taskinstance.py:731} INFO - ::endgroup::
+[2025-04-17T07:50:10.583+0000] {subprocess.py:63} INFO - Tmp dir root location: /tmp
+[2025-04-17T07:50:10.585+0000] {subprocess.py:75} INFO - Running command: ['/usr/bin/bash', '-c', 'set -x; cd /opt/***/dbt && dbt run --select tag:staging']
+[2025-04-17T07:50:10.598+0000] {subprocess.py:86} INFO - Output:
+[2025-04-17T07:50:10.610+0000] {subprocess.py:93} INFO - + cd /opt/***/dbt
+[2025-04-17T07:50:10.611+0000] {subprocess.py:93} INFO - + dbt run --select tag:staging
+[2025-04-17T07:50:13.806+0000] {subprocess.py:93} INFO - [0m07:50:13  Running with dbt=1.8.0
+[2025-04-17T07:50:14.273+0000] {subprocess.py:93} INFO - [0m07:50:14  Registered adapter: postgres=1.8.2
+[2025-04-17T07:50:14.818+0000] {subprocess.py:93} INFO - [0m07:50:14  Found 9 models, 10 sources, 428 macros
+[2025-04-17T07:50:14.821+0000] {subprocess.py:93} INFO - [0m07:50:14
+[2025-04-17T07:50:14.991+0000] {subprocess.py:93} INFO - [0m07:50:14  Concurrency: 1 threads (target='dev')
+[2025-04-17T07:50:14.992+0000] {subprocess.py:93} INFO - [0m07:50:14
+[2025-04-17T07:50:15.005+0000] {subprocess.py:93} INFO - [0m07:50:15  1 of 5 START sql table model lead_staging.dim_address .......................... [RUN]

@@ -1,0 +1,120 @@
+[2025-04-17T07:30:34.906+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2025-04-17T07:30:34.927+0000] {taskinstance.py:2612} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: extract_raw_data_pipeline.run_dbt_trusted scheduled__2025-04-17T07:00:00+00:00 [queued]>
+[2025-04-17T07:30:34.938+0000] {taskinstance.py:2612} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: extract_raw_data_pipeline.run_dbt_trusted scheduled__2025-04-17T07:00:00+00:00 [queued]>
+[2025-04-17T07:30:34.938+0000] {taskinstance.py:2865} INFO - Starting attempt 1 of 1
+[2025-04-17T07:30:34.961+0000] {taskinstance.py:2888} INFO - Executing <Task(BashOperator): run_dbt_trusted> on 2025-04-17 07:00:00+00:00
+[2025-04-17T07:30:34.967+0000] {warnings.py:112} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:70: DeprecationWarning: This process (pid=12557) is multi-threaded, use of fork() may lead to deadlocks in the child.
+  pid = os.fork()
+
+[2025-04-17T07:30:34.969+0000] {standard_task_runner.py:72} INFO - Started process 12559 to run task
+[2025-04-17T07:30:34.969+0000] {standard_task_runner.py:104} INFO - Running: ['***', 'tasks', 'run', 'extract_raw_data_pipeline', 'run_dbt_trusted', 'scheduled__2025-04-17T07:00:00+00:00', '--job-id', '179', '--raw', '--subdir', 'DAGS_FOLDER/lead_data_pipeline.py', '--cfg-path', '/tmp/tmppxzx5gqa']
+[2025-04-17T07:30:34.971+0000] {standard_task_runner.py:105} INFO - Job 179: Subtask run_dbt_trusted
+[2025-04-17T07:30:35.034+0000] {task_command.py:467} INFO - Running <TaskInstance: extract_raw_data_pipeline.run_dbt_trusted scheduled__2025-04-17T07:00:00+00:00 [running]> on host c0ac39583bd8
+[2025-04-17T07:30:35.144+0000] {taskinstance.py:3131} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='extract_raw_data_pipeline' AIRFLOW_CTX_TASK_ID='run_dbt_trusted' AIRFLOW_CTX_EXECUTION_DATE='2025-04-17T07:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2025-04-17T07:00:00+00:00'
+[2025-04-17T07:30:35.146+0000] {taskinstance.py:731} INFO - ::endgroup::
+[2025-04-17T07:30:35.173+0000] {subprocess.py:63} INFO - Tmp dir root location: /tmp
+[2025-04-17T07:30:35.174+0000] {subprocess.py:75} INFO - Running command: ['/usr/bin/bash', '-c', 'set -x; cd /opt/***/dbt && dbt run --select tag:trusted']
+[2025-04-17T07:30:35.187+0000] {subprocess.py:86} INFO - Output:
+[2025-04-17T07:30:35.196+0000] {subprocess.py:93} INFO - + cd /opt/***/dbt
+[2025-04-17T07:30:35.197+0000] {subprocess.py:93} INFO - + dbt run --select tag:trusted
+[2025-04-17T07:30:38.574+0000] {subprocess.py:93} INFO - [0m07:30:38  Running with dbt=1.8.0
+[2025-04-17T07:30:39.094+0000] {subprocess.py:93} INFO - [0m07:30:39  Registered adapter: postgres=1.8.2
+[2025-04-17T07:30:39.687+0000] {subprocess.py:93} INFO - [0m07:30:39  Found 9 models, 10 sources, 428 macros
+[2025-04-17T07:30:39.691+0000] {subprocess.py:93} INFO - [0m07:30:39
+[2025-04-17T07:30:39.844+0000] {subprocess.py:93} INFO - [0m07:30:39  Concurrency: 1 threads (target='dev')
+[2025-04-17T07:30:39.845+0000] {subprocess.py:93} INFO - [0m07:30:39
+[2025-04-17T07:30:39.857+0000] {subprocess.py:93} INFO - [0m07:30:39  1 of 4 START sql table model lead_trusted.non_pii_data ......................... [RUN]
+[2025-04-17T07:33:20.981+0000] {subprocess.py:93} INFO - [0m07:33:20  1 of 4 ERROR creating sql table model lead_trusted.non_pii_data ................ [[31mERROR[0m in 161.12s]
+[2025-04-17T07:33:20.988+0000] {subprocess.py:93} INFO - [0m07:33:20  2 of 4 START sql table model lead_trusted.payment_data ......................... [RUN]
+[2025-04-17T07:34:05.437+0000] {subprocess.py:93} INFO - [0m07:34:05  2 of 4 OK created sql table model lead_trusted.payment_data .................... [[32mSELECT 6924520[0m in 44.45s]
+[2025-04-17T07:34:05.461+0000] {subprocess.py:93} INFO - [0m07:34:05  3 of 4 START sql table model lead_trusted.pii_data ............................. [RUN]
+[2025-04-17T07:34:38.233+0000] {subprocess.py:93} INFO - [0m07:34:38  3 of 4 ERROR creating sql table model lead_trusted.pii_data .................... [[31mERROR[0m in 32.77s]
+[2025-04-17T07:34:38.237+0000] {subprocess.py:93} INFO - [0m07:34:38  4 of 4 START sql table model lead_trusted.technical_data ....................... [RUN]
+[2025-04-17T07:35:41.678+0000] {subprocess.py:93} INFO - [0m07:35:41  4 of 4 OK created sql table model lead_trusted.technical_data .................. [[32mSELECT 7566518[0m in 63.44s]
+[2025-04-17T07:35:41.697+0000] {subprocess.py:93} INFO - [0m07:35:41
+[2025-04-17T07:35:41.698+0000] {subprocess.py:93} INFO - [0m07:35:41  Finished running 4 table models in 0 hours 5 minutes and 2.01 seconds (302.01s).
+[2025-04-17T07:35:41.768+0000] {subprocess.py:93} INFO - [0m07:35:41
+[2025-04-17T07:35:41.769+0000] {subprocess.py:93} INFO - [0m07:35:41  [31mCompleted with 2 errors and 0 warnings:[0m
+[2025-04-17T07:35:41.770+0000] {subprocess.py:93} INFO - [0m07:35:41
+[2025-04-17T07:35:41.771+0000] {subprocess.py:93} INFO - [0m07:35:41    Database Error in model trusted_non_pii_data (models/trusted_non_pii_data.sql)
+[2025-04-17T07:35:41.772+0000] {subprocess.py:93} INFO -   could not extend file "base/16384/17992.4": No space left on device
+[2025-04-17T07:35:41.773+0000] {subprocess.py:93} INFO -   HINT:  Check free disk space.
+[2025-04-17T07:35:41.773+0000] {subprocess.py:93} INFO -   compiled code at target/run/dbt_lead_data/models/trusted_non_pii_data.sql
+[2025-04-17T07:35:41.774+0000] {subprocess.py:93} INFO - [0m07:35:41
+[2025-04-17T07:35:41.774+0000] {subprocess.py:93} INFO - [0m07:35:41    Database Error in model trusted_pii_data (models/trusted_pii_data.sql)
+[2025-04-17T07:35:41.775+0000] {subprocess.py:93} INFO -   could not write to file "base/pgsql_tmp/pgsql_tmp55875.0.sharedfileset/i70of128.p0.0": No space left on device
+[2025-04-17T07:35:41.775+0000] {subprocess.py:93} INFO -   compiled code at target/run/dbt_lead_data/models/trusted_pii_data.sql
+[2025-04-17T07:35:41.776+0000] {subprocess.py:93} INFO - [0m07:35:41
+[2025-04-17T07:35:41.776+0000] {subprocess.py:93} INFO - [0m07:35:41  Done. PASS=2 WARN=0 ERROR=2 SKIP=0 TOTAL=4
+[2025-04-17T07:35:42.704+0000] {subprocess.py:97} INFO - Command exited with return code 1
+[2025-04-17T07:35:42.719+0000] {taskinstance.py:3310} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 767, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 733, in _execute_callable
+    return ExecutionCallableRunner(
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/utils/operator_helpers.py", line 252, in run
+    return self.func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/baseoperator.py", line 406, in wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/operators/bash.py", line 249, in execute
+    raise AirflowException(
+airflow.exceptions.AirflowException: Bash command failed. The command returned a non-zero exit code 1.
+[2025-04-17T07:35:42.729+0000] {taskinstance.py:1225} INFO - Marking task as FAILED. dag_id=extract_raw_data_pipeline, task_id=run_dbt_trusted, run_id=scheduled__2025-04-17T07:00:00+00:00, execution_date=20250417T070000, start_date=20250417T073034, end_date=20250417T073542
+[2025-04-17T07:35:42.751+0000] {taskinstance.py:340} INFO - ::group::Post task execution logs
+[2025-04-17T07:35:42.752+0000] {standard_task_runner.py:124} ERROR - Failed to execute job 179 for task run_dbt_trusted (Bash command failed. The command returned a non-zero exit code 1.; 12559)
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/task/task_runner/standard_task_runner.py", line 117, in _start_by_fork
+    ret = args.func(args, dag=self.dag)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/cli/cli_config.py", line 49, in command
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/utils/cli.py", line 115, in wrapper
+    return f(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/cli/commands/task_command.py", line 483, in task_run
+    task_return_code = _run_task_by_selected_method(args, _dag, ti)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/cli/commands/task_command.py", line 256, in _run_task_by_selected_method
+    return _run_raw_task(args, ti)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/cli/commands/task_command.py", line 341, in _run_raw_task
+    return ti._run_raw_task(
+           ^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/utils/session.py", line 97, in wrapper
+    return func(*args, session=session, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 3004, in _run_raw_task
+    return _run_raw_task(
+           ^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 273, in _run_raw_task
+    TaskInstance._execute_task_with_callbacks(
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 3158, in _execute_task_with_callbacks
+    result = self._execute_task(context, task_orig)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 3182, in _execute_task
+    return _execute_task(self, context, task_orig)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 767, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 733, in _execute_callable
+    return ExecutionCallableRunner(
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/utils/operator_helpers.py", line 252, in run
+    return self.func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/baseoperator.py", line 406, in wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/operators/bash.py", line 249, in execute
+    raise AirflowException(
+airflow.exceptions.AirflowException: Bash command failed. The command returned a non-zero exit code 1.
+[2025-04-17T07:35:42.784+0000] {local_task_job_runner.py:266} INFO - Task exited with return code 1
+[2025-04-17T07:35:42.803+0000] {taskinstance.py:3900} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2025-04-17T07:35:42.924+0000] {local_task_job_runner.py:245} INFO - ::endgroup::

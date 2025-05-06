@@ -1,10 +1,10 @@
 import csv
 import random
-import csv
 import logging
-import uuid
-import polars as pl
 import os
+import duckdb
+import polars as pl
+import uuid
 
 from faker import Faker
 from datetime import date, datetime, timedelta
@@ -49,7 +49,6 @@ def _generate_record(fake: Faker) -> list:
     user_name = person_name.replace(" ", "").lower()  # Create a lowercase username without spaces.
     email = f"{user_name}@{fake.free_email_domain()}"  # Combine the username with a random email domain.
     personal_number = fake.ssn()  # Generate a random social security number.
-    # personal_number = int(fake.ssn().replace('-', ''))
     birth_date = fake.date_of_birth()  # Generate a random birth date.
     address = fake.address().replace("\n", ", ")  # Replace newlines in the address with commas.
     phone_number = fake.phone_number()  # Generate a random phone number.
@@ -85,7 +84,7 @@ def _write_to_csv() -> None:
     ]
 
     # Establish number of rows based date.
-    if str(date.today()) == "2025-04-14":
+    if str(date.today()) == "2024-09-23":
         rows = random.randint(100_372, 100_372)
     else:
         rows = random.randint(0, 1_101)
@@ -93,8 +92,7 @@ def _write_to_csv() -> None:
     # Open the CSV file for writing.
     with open("/opt/airflow/data/raw_data.csv", mode="a", encoding="utf-8", newline="") as file:
         writer = csv.writer(file)
-        if os.stat("/opt/airflow/data/raw_data.csv").st_size == 0:
-            writer.writerow(headers)
+        writer.writerow(headers)
         
         # Generate and write each record to the CSV.
         for _ in range(rows):
@@ -124,7 +122,7 @@ def _update_datetime() -> None:
     Update the 'accessed_at' column in a CSV file with the appropriate timestamp.
     """
         # Change date only for next runs.
-    if str(date.today()) != "2025-04-13":
+    if str(date.today()) != "2024-09-23":
         # Get the current time without milliseconds and calculate yesterday's time.
         current_time = datetime.now().replace(microsecond=0)
         yesterday_time = str(current_time - timedelta(days=1))
@@ -166,8 +164,8 @@ dag = DAG(
     'extract_raw_data_pipeline',
     default_args=default_args,
     description='LeadData Main Pipeline.',
-    schedule_interval="* 7 * * *",
-    start_date=datetime(2024, 9, 22),
+    schedule_interval="@daily",
+    start_date=datetime(2025, 5, 5),
     catchup=False,
 )
 
